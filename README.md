@@ -1,26 +1,26 @@
 #useEffect
 
-<!-- component didMount -->
+component didMount
 
-useEffect(() => {
+`useEffect(() => {
 console.log("componentler 12093712");
-}, []);
+}, []);`
 
-<!-- all components didUpdate -->
+all components didUpdate
 
-useEffect(() => {
+`useEffect(() => {
 console.log("componentler calisti");
-});
+});`
 
-<!-- counter component didUpdate -->
+counter component didUpdate
 
-useEffect(() => {
+`useEffect(() => {
 console.log("component laslkd");
 }, [counter]);
+`
+cleanUp gerektiren durumlarda return ile sagliyoruz
 
-<!-- cleanUp gerektiren durumlarda return ile sagliyoruz -->
-
-useEffect(() => {
+`useEffect(() => {
 const interval = setInterval(() => {
 console.log("Ben iki saniyede bir calisiyorum");
 }, 2000);
@@ -29,22 +29,23 @@ console.log("Ben iki saniyede bir calisiyorum");
       clearInterval(interval);
     };
 
-}, []);
+}, []);`
 
-<!-- all componentDidMount -->
+all componentDidMount
 
-useEffect(() => {
+`useEffect(() => {
 console.log("Mount");
-}, []);
+}, []);`
 
-<!-- Name componentDidMount and name componentDidUpdate -->
+Name componentDidMount and name componentDidUpdate
 
-useEffect(() => {
+`useEffect(() => {
 console.log("Name Mount");
 }, [name]);
+`
+componentDidMount and componentDidUpdate
 
-<!-- componentDidMount and componentDidUpdate -->
-
-useEffect(() => {
+`useEffect(() => {
 document.title = `${counter} kez tiklandi`;
 });
+`
