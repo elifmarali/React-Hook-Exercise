@@ -62,8 +62,7 @@ React ile uygulama geliştirirken state'ler tanımlarız ve bu state'leri kullan
 
 Paylaşılabilir bir state oluşturmak için ilk yapmamız gereken bir context oluşturmaktır. Context oluşturmak için React.createContext() metodunu kullanılırız. Bu metod oluşturduğumuz context için default değer belirleyebileceğimiz bir parametre alır.
 
-`
-const ThemeContext = React.createContext('light')
+`const ThemeContext = React.createContext('light')
 
 const AuthContext = React.createContext({
 isLoggedIn: false,
@@ -72,19 +71,18 @@ user: null
 
 const MoviesContext = React.createContext({
 movies: []
-})
-`
+})`
+
 Yukarıdaki örnekte olduğu gibi farklı tiplerde context'ler oluşturabiliyoruz. Oluşturduğumuz context'i kullanabilmek için Context Provider ve Context Consumer olmak üzere iki adet özel component'a ihtiyaç duyarız.
 
 ## Context.Provider
 
 Context Provider oluşturduğumuz context'i kullanacak componentların erişebilmesini sağlayan, context güncellemelerinde bu componentların yeniden render olmasını sağlayan ve #oluşturduğumuz context'ten türeyen bir component'tır. Bu component value isminde bir prop alır ve bu prop ile context değerleri child componentlara aktarılır.
 
-`
-const ToggleContext = React.createContext()
+`const ToggleContext = React.createContext()
 
-<ToggleContext.Provider value={/_ componentlara dağıtılacak değer _/}>
-`
+<ToggleContext.Provider value={/_ componentlara dağıtılacak değer _/}>`
+
 💡 Burada Context Provider componentının context'i kullanacak componentların parent'ı olmasına dikkat edilmesi gerekir. Aksi takdirde componentlar context'e erişemezler.
 
 ## Context.Consumer
@@ -97,8 +95,7 @@ Context Consumer componetları Context Provider ile gönderilen context değerle
 
 Bu yöntemi birden fazla context'i kullanan componentlar için önermiyorum. Çünkü birden fazla context'i kullanan component için bu yöntem aşağıdaki gibi çirkin bir görünüme sahip olacaktır.
 
-`
-<ThemeContext.Consumer>
+`<ThemeContext.Consumer>
   {theme => (
     <AuthContext.Consumer>
       {user => <div className={`${theme === 'dark' ? 'dark-theme' : ''}`}>{user.name}</div>}
@@ -110,8 +107,7 @@ Bu yöntemi birden fazla context'i kullanan componentlar için önermiyorum. Ç�
 
 Functional componentlarda context değerlerine ulşamak için useContext hook'unu kullanıyoruz. Bu hook parametre olarak oluşturduğumuz context'i alır. Hemen bir önceki örneği functional component kullanarak yapalım.
 
-`
-import React, { useContext } from 'react'
+`import React, { useContext } from 'react'
 
 import AuthContext from './context/AuthContext'
 import ThemeContext from './context/ThemeContext'
@@ -126,8 +122,7 @@ return (
 {isLoggedIn ? <span>{user.name}</span> : <button>Giriş Yap</button>}
 </div>
 )
-}
-`
+}`
 
 useContext ile hem AuthContext hem de ThemeContext contextlerinin değerlerine ulaşabilmiş olduk.
 
